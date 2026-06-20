@@ -1,0 +1,35 @@
+name: CI Pipeline
+on:
+  pull_request:
+    branches: [main]
+  workflow_run:
+    workflows: [CI Pipeline]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  build-pr:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci && npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: dist/
+
+  deploy:
+    if: github.event_name == 'workflow_run'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      secrets: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-output
+      - run: unzip build-output.zip && chmod +x deploy.sh && ./deploy.sh
+      - run: echo "Deploying with secrets access"

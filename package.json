@@ -1,7 +1,11 @@
 {
   "name": "artifact-notary",
   "version": "1.0.0",
-  "description": "Tracks GitHub Actions artifact chains and detects untrusted privilege boundary crossings",
+  "description": "Scan GitHub Actions workflows for untrusted artifact uploads crossing into privileged deploy jobs.",
+  "author": "Mehmet Turac (https://github.com/mturac)",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/mturac/artifact-notary.git" },
+  "homepage": "https://github.com/mturac/artifact-notary#readme",
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3102",

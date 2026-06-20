@@ -1,6 +1,8 @@
 # artifact-notary
 
-> Tracks GitHub Actions artifact chains and detects untrusted privilege boundary crossings.
+> Scan GitHub Actions workflows for untrusted artifact uploads crossing into privileged deploy jobs.
+
+**Topics:** `github-actions` · `ci-cd` · `supply-chain-security` · `devsecops` · `artifacts` · `workflow-security`
 
 ![Screenshot](docs/screenshot.png)
 
@@ -28,4 +30,8 @@ npm run cli -- fixtures/vulnerable.yml
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
+
+## Author
+
+**Mehmet Turac** — [github.com/mturac](https://github.com/mturac)
